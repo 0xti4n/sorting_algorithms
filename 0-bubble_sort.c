@@ -29,14 +29,17 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
 
-	for (i = 0; i < size - 1; i++)
+	if (size != 2)
 	{
-		for (j = 0; j < size - 1; j++)
+		for (i = 0; i < size - 1; i++)
 		{
-			if (array[j] > array[j + 1])
+			for (j = 0; j < size - 1; j++)
 			{
-				swap_array(&array[j], &array[j + 1]);
-				print_array(array, size);
+				if (array[j] > array[j + 1])
+				{
+					swap_array(&array[j], &array[j + 1]);
+					print_array(array, size);
+				}
 			}
 		}
 	}
