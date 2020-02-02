@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
 * swap_1 - insertion sort function.
@@ -60,7 +61,6 @@ void swap_4(listint_t *tmp)
 	tmp->prev->next = tmp;
 }
 
-
 /**
 * insertion_sort_list - insertion sort function.
 * @list: nodes.
@@ -69,43 +69,43 @@ void swap_4(listint_t *tmp)
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp, *tmp2;
+	listint_t *tmp, *tmp2, *size;
 
+	size = *list;
 	tmp2 = (*list)->next;
 	tmp = tmp2;
 
-	while (tmp2 != NULL)
+	if (size->next != NULL)
 	{
-		while (tmp != NULL)
+		while (tmp2 != NULL)
 		{
-			if (tmp->n > tmp2->n && tmp->prev == NULL && tmp2->next == NULL)
+			while (tmp != NULL)
 			{
-				swap_4(tmp);
-				tmp = tmp->prev;
-				*list = tmp;
-				print_list(*list);
-			}
-			if (tmp->n > tmp2->n && tmp->prev == NULL)
-			{
-				swap_1(tmp);
-				tmp = tmp->prev;
-				*list = tmp;
-				print_list(*list);
-			}
-			if (tmp->n > tmp2->n && tmp->prev != NULL)
-			{
-				if (tmp->n > tmp2->n && tmp2->next == NULL)
+				if (tmp->n > tmp2->n && tmp->prev == NULL && tmp2->next == NULL)
 				{
-					swap_3(tmp), print_list(*list);
+					swap_4(tmp);
+					tmp = tmp->prev;
+					*list = tmp;
+					print_list(*list);
 				}
-				else
+				if (tmp->n > tmp2->n && tmp->prev == NULL)
 				{
-					swap_2(tmp), print_list(*list);
+					swap_1(tmp);
+					tmp = tmp->prev;
+					*list = tmp;
+					print_list(*list);
 				}
+				if (tmp->n > tmp2->n && tmp->prev != NULL)
+				{
+					if (tmp->n > tmp2->n && tmp2->next == NULL)
+						swap_3(tmp), print_list(*list);
+					else
+						swap_2(tmp), print_list(*list);
+				}
+				tmp = tmp->prev;
 			}
-			tmp = tmp->prev;
+			tmp2 = tmp2->next;
+			tmp = tmp2;
 		}
-		tmp2 = tmp2->next;
-		tmp = tmp2;
 	}
 }
