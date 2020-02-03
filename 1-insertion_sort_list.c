@@ -74,7 +74,7 @@ void insertion_sort_list(listint_t **list)
 	tmp2 = (*list)->next;
 	tmp = tmp2;
 
-	if (size->next != NULL)
+	if (size->next != NULL || *list != NULL || list != NULL)
 	{
 		while (tmp2 != NULL)
 		{
