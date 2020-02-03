@@ -70,7 +70,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *tmp, *tmp2;
 
-	if (*list != NULL && list != NULL)
+	if (list != NULL && *list != NULL)
 	{
 		tmp2 = (*list)->next;
 		tmp = tmp2;
