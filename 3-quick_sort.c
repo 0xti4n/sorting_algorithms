@@ -1,5 +1,13 @@
 #include "sort.h"
 
+/**
+* swap - function that swap the array
+* @a: number 1
+* @b: number 2
+* @array: the array
+* @size: the size of the array
+* Return: Nothing
+*/
 
 void swap(int *a, int *b, int *array, size_t size)
 {
