@@ -73,8 +73,9 @@ void insertion_sort_list(listint_t **list)
 	size = *list;
 	tmp2 = (*list)->next;
 	tmp = tmp2;
-
-	if (size->next != NULL || *list != NULL || list != NULL)
+	if (*list == NULL || list == NULL)
+		return;
+	if (size->next != NULL)
 	{
 		while (tmp2 != NULL)
 		{
