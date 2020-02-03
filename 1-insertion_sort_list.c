@@ -68,11 +68,10 @@ void swap_4(listint_t *tmp)
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp, *tmp2, *size;
+	listint_t *tmp, *tmp2;
 
-	if (*list == NULL || list == NULL)
+	if (*list != NULL || list != NULL)
 	{
-		size = *list;
 		tmp2 = (*list)->next;
 		tmp = tmp2;
 		while (tmp2 != NULL)
