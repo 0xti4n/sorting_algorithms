@@ -12,24 +12,26 @@ void shell_sort(int *array, size_t size)
 	size_t num, in, out;
 	int tmp;
 
-	num = 1;
-	while (num <= size / 3)
-		num = num * 3 + 1;
-
-	while (num > 0)
+	if (size > 1)
 	{
-		for (out = num; out < size; out++)
+		num = 1;
+		while (num <= size / 3)
+			num = num * 3 + 1;
+		while (num > 0)
 		{
-			tmp = array[out];
-			in = out;
-			while (in > num - 1 && (array[in - num] >= tmp))
+			for (out = num; out < size; out++)
 			{
-				array[in] = array[in - num];
-				in -= num;
+				tmp = array[out];
+				in = out;
+				while (in > num - 1 && (array[in - num] >= tmp))
+				{
+					array[in] = array[in - num];
+					in -= num;
+				}
+				array[in] = tmp;
 			}
-			array[in] = tmp;
+			num = (num - 1) / 3;
+			print_array(array, size);
 		}
-		num = (num - 1) / 3;
-		print_array(array, size);
 	}
 }
