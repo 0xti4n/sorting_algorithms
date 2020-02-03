@@ -18,9 +18,6 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 	pivot = array[high];
 	i = (low - 1);
 
-	if (low == 0)
-		i = -1;
-
 	for (j = low; j < high; j++)
 	{
 		num = array[j];
@@ -30,13 +27,16 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
+			if (i != (int)j)
+				print_array(array, size);
 		}
 	}
 	i++;
 	tmp = array[i];
 	array[i] = array[high];
 	array[high] = tmp;
-	print_array(array, size);
+	if (i != (int)high)
+		print_array(array, size);
 	return (i);
 }
 
@@ -51,7 +51,7 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 
 void quick(int *array, size_t low, size_t high, size_t size)
 {
-	unsigned int pi;
+	size_t pi;
 
 	if (low < high)
 	{
