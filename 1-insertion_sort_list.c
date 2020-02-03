@@ -95,9 +95,11 @@ void insertion_sort_list(listint_t **list)
 				if (tmp->n > tmp2->n && tmp->prev != NULL)
 				{
 					if (tmp->n > tmp2->n && tmp2->next == NULL)
+					{
 						swap_3(tmp), print_list(*list);
+					}
 					else
-						swap_2(tmp), print_list(*list);
+					{swap_2(tmp), print_list(*list); }
 				}
 				tmp = tmp->prev;
 			}
