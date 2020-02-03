@@ -70,13 +70,11 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *tmp, *tmp2, *size;
 
-	size = *list;
-	tmp2 = (*list)->next;
-	tmp = tmp2;
 	if (*list == NULL || list == NULL)
-		return;
-	if (size->next != NULL)
 	{
+		size = *list;
+		tmp2 = (*list)->next;
+		tmp = tmp2;
 		while (tmp2 != NULL)
 		{
 			while (tmp != NULL)
